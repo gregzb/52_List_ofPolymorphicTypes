@@ -22,16 +22,6 @@ public class List_inArraySlots {
         array = new Object[DEFAULT_SIZE];
     }
 
-    public List_inArraySlots(T[] array) {
-        int startSize = DEFAULT_SIZE;
-        while (startSize < array.length) {
-            startSize*=2;
-        }
-        this.array = new Object[startSize];
-        capacity = array.length;
-        copy(array);
-    }
-
     private void copy(Object[] array) {
         for (int i = 0; i < Math.min(this.array.length, array.length); i++) {
             this.array[i] = array[i];
@@ -104,11 +94,11 @@ public class List_inArraySlots {
         return true;
     }
 
-    public T get(int index) {
+    public Object get(int index) {
         if (index > capacity - 1 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
-        return (T) array[index];
+        return array[index];
     }
 
     public boolean set(int index, Object value) {
