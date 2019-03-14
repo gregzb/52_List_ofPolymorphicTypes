@@ -54,5 +54,13 @@ public class UserOfList {
         // System.out.println(new List_inArraySlots<Integer>(list).filter( (num) -> ( num % 2 == 0) ).map((num) -> (num % 4)));
 //        list.add(3, 3);
 //        System.out.println(list);
+
+        List_inArraySlots<Object> list2 = new List_inArraySlots<>();
+
+        list2.add("hello");
+        list2.add(2.242);
+        list2.add(9);
+
+        System.out.println(list2);
     }
 }
