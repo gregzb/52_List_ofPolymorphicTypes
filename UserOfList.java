@@ -3,7 +3,7 @@
  */
 public class UserOfList {
     public static void main( String[] args ) {
-        List_inArraySlots<Integer> list = new List_inArraySlots<>();
+        List_inArraySlots list = new List_inArraySlots();
 
         System.out.println( "number of elements: " + list.size() );
         System.out.println( "empty list:" + list);
@@ -39,27 +39,13 @@ public class UserOfList {
         list.remove(list.size()-1);
         System.out.println(list);
 
-        System.out.println("NEW LIST");
-        System.out.println(new List_inArraySlots<Integer>(list));
-
-        System.out.println("NEW MAP");
-        //List_inArraySlots<Integer> thing = new List_inArraySlots<Integer>(list).map( (num) -> ( num % 4) );
-        System.out.println(new List_inArraySlots<Integer>(list).map( (num) -> ( num % 4) ).map( (num) -> ( num % 2) ));
-        //System.out.println(new List_inArraySlots<Integer>(list).map( (num) -> ( num % 4) ).get(2).getClass());
-
-        System.out.println("NEW FILTER");
-        System.out.println(new List_inArraySlots<Integer>(list).filter( (num) -> ( num % 2 == 0) ));
-
-        System.out.println("COOL OP");
-        // System.out.println(new List_inArraySlots<Integer>(list).filter( (num) -> ( num % 2 == 0) ).map((num) -> (num % 4)));
-//        list.add(3, 3);
-//        System.out.println(list);
-
-        List_inArraySlots<Object> list2 = new List_inArraySlots<>();
+        List_inArraySlots list2 = new List_inArraySlots();
 
         list2.add("hello");
         list2.add(2.242);
         list2.add(9);
+        list2.add(true);
+        list2.add("ly a magnifecent list");
 
         System.out.println(list2);
     }
