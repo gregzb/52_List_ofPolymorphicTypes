@@ -6,7 +6,7 @@ import java.util.function.UnaryOperator;
   both data and operations.
  */
 
-public class List_inArraySlots<T> {
+public class List_inArraySlots {
 
     // declare fields here
 
@@ -30,12 +30,6 @@ public class List_inArraySlots<T> {
         this.array = new Object[startSize];
         capacity = array.length;
         copy(array);
-    }
-
-    public List_inArraySlots(List_inArraySlots<T> list) {
-        array = new Object[list.array.length];
-        capacity = list.capacity;
-        copy(list.array);
     }
 
     private void copy(Object[] array) {
@@ -73,11 +67,11 @@ public class List_inArraySlots<T> {
 
       @return true, in keeping with conventions yet to be discussed
      */
-    public boolean add( T value) {
+    public boolean add(Object value) {
         return add(value, capacity);
     }
 
-    public boolean add( T value, int index) {
+    public boolean add(Object value, int index) {
         if (index > capacity || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -117,7 +111,7 @@ public class List_inArraySlots<T> {
         return (T) array[index];
     }
 
-    public boolean set(int index, T value) {
+    public boolean set(int index, Object value) {
         if (index > capacity - 1 || index < 0) {
             throw new IndexOutOfBoundsException();
         }
@@ -126,45 +120,6 @@ public class List_inArraySlots<T> {
 
         return true;
     }
-
-    public List_inArraySlots<T> map(UnaryOperator<T> operator) {
-        for (int i = 0; i < capacity; i++) {
-            T obj = (T) array[i];
-            array[i] = operator.apply(obj);
-        }
-        return this;
-    }
-
-    public List_inArraySlots<T> filter(Predicate<T> operator) {
-        for (int i = 0; i < capacity; i++) {
-            T obj = (T) array[i];
-            if (!operator.test(obj)) {
-                remove(i);
-                i--;
-            }
-        }
-        return this;
-    }
-
-    public int find(T obj) {
-        for (int i = 0; i < capacity; i++) {
-            if (array[i].equals(obj)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public int count(T obj) {
-        int temp = 0;
-        for (int i = 0; i < capacity; i++) {
-            if (array[i].equals(obj)) {
-                temp++;
-            }
-        }
-        return temp;
-    }
-
 
     /**
       Double the capacity of the List_inArraySlots,
